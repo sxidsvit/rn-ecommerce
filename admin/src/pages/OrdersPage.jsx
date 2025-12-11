@@ -1,15 +1,19 @@
 import { orderApi } from "../lib/api";
+import { useApi } from "../lib/axios";
 import { formatDate } from "../lib/utils";
 
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
 function OrdersPage() {
   const queryClient = useQueryClient();
+  const apiClient = useApi();
 
   const { data: ordersData, isLoading } = useQuery({
     queryKey: ["orders"],
-    queryFn: orderApi.getAll,
+    queryFn: () => orderApi.getAll(apiClient),
   });
+
+  console.log('OrdersPage - ordersData: ', ordersData);
 
   const updateStatusMutation = useMutation({
     mutationFn: orderApi.updateStatus,

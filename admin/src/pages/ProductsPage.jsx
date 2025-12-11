@@ -2,6 +2,7 @@ import { useState } from "react";
 import { PlusIcon, PencilIcon, Trash2Icon, XIcon, ImageIcon } from "lucide-react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { productApi } from "../lib/api";
+import { useApi } from "../lib/axios";
 import { getStockStatusBadge } from "../lib/utils";
 
 function ProductsPage() {
@@ -19,15 +20,20 @@ function ProductsPage() {
 
   const queryClient = useQueryClient();
 
+  const apiClient = useApi();
+
+
   // fetch some data
   const { data: products = [] } = useQuery({
     queryKey: ["products"],
-    queryFn: productApi.getAll,
+    queryFn: () => productApi.getAll(apiClient),
+    initialData: [],
+
   });
 
   // creating, update, deleting
   const createProductMutation = useMutation({
-    mutationFn: productApi.create,
+    mutationFn: productApi.create(apiClient),
     onSuccess: () => {
       closeModal();
       queryClient.invalidateQueries({ queryKey: ["products"] });
@@ -35,7 +41,7 @@ function ProductsPage() {
   });
 
   const updateProductMutation = useMutation({
-    mutationFn: productApi.update,
+    mutationFn: productApi.update(apiClient),
     onSuccess: () => {
       closeModal();
       queryClient.invalidateQueries({ queryKey: ["products"] });
@@ -43,7 +49,7 @@ function ProductsPage() {
   });
 
   const deleteProductMutation = useMutation({
-    mutationFn: productApi.delete,
+    mutationFn: productApi.delete(apiClient),
     onSuccess: () => {
       closeModal();
       queryClient.invalidateQueries({ queryKey: ["products"] });
