@@ -11,7 +11,6 @@ function CustomersPage() {
     queryKey: ["customers"],
     queryFn: () => customerApi.getAll(apiClient),
   });
-  console.log('CustomersPage - data: ', data);
 
   const customers = data?.customers || [];
 
