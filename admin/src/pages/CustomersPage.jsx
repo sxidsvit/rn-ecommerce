@@ -9,7 +9,11 @@ function CustomersPage() {
 
   const { data, isLoading } = useQuery({
     queryKey: ["customers"],
+<<<<<<< HEAD
     queryFn: () => customerApi.getAll,
+=======
+    queryFn: () => customerApi.getAll(apiClient),
+>>>>>>> 6009ec4504a20ce5d8373036a793fa5b549fa3a0
   });
   console.log('CustomersPage - data: ', data);
 
