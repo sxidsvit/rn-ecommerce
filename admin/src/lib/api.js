@@ -1,58 +1,54 @@
-import axiosInstance from "./axios";
-import { useApi } from "./axios";
+/**
+ * Example of use in a component:
+ * const apiClient = useApi(); 
+ * We use the passed apiClient, which already contains the Authorization header
+ * const products = await productApi.getAll(apiClient); 
+ */
 
 export const productApi = {
-  getAll: async () => {
-    // const axiosInstance = useApi();
-    console.log('productApi - axiosInstance: ', axiosInstance);
-    const { data } = await axiosInstance.get("/admin/products");
+  getAll: async (apiClient) => {
+    const { data } = await apiClient.get("/admin/products");
     return data;
   },
 
-  create: async (formData) => {
-    const axiosInstance = useApi();
-    const { data } = await axiosInstance.post("/admin/products", formData);
+  create: async (apiClient, formData) => {
+    const { data } = await apiClient.post("/admin/products", formData);
     return data;
   },
 
-  update: async ({ id, formData }) => {
-    const axiosInstance = useApi();
-    const { data } = await axiosInstance.put(`/admin/products/${id}`, formData);
+  update: async (apiClient, { id, formData }) => {
+    const { data } = await apiClient.put(`/admin/products/${id}`, formData);
     return data;
   },
 
-  delete: async (productId) => {
-    const axiosInstance = useApi();
-    const { data } = await axiosInstance.delete(`/admin/products/${productId}`);
+  delete: async (apiClient, productId) => {
+    const { data } = await apiClient.delete(`/admin/products/${productId}`);
     return data;
   },
 };
 
 export const orderApi = {
-  getAll: async () => {
-    const axiosInstance = useApi();
-    const { data } = await axiosInstance.get("/admin/orders");
+  getAll: async (apiClient) => {
+    const { data } = await apiClient.get("/admin/orders");
     return data;
   },
 
-  updateStatus: async ({ orderId, status }) => {
-    const axiosInstance = useApi();
-    const { data } = await axiosInstance.patch(`/admin/orders/${orderId}/status`, { status });
+  updateStatus: async (apiClient, { orderId, status }) => {
+    const { data } = await apiClient.patch(`/admin/orders/${orderId}/status`, { status });
     return data;
   },
 };
 
 export const statsApi = {
-  getDashboard: async () => {
-    const { data } = await axiosInstance.get("/admin/stats");
+  getDashboard: async (apiClient) => {
+    const { data } = await apiClient.get("/admin/stats");
     return data;
   },
 };
 
 export const customerApi = {
-  getAll: async () => {
-    const axiosInstance = useApi();
-    const { data } = await axiosInstance.get("/admin/customers");
+  getAll: async (apiClient) => {
+    const { data } = await apiClient.get("/admin/customers");
     return data;
   },
 };

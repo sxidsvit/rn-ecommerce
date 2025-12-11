@@ -26,17 +26,24 @@ app.use(cors({
   origin: (origin, callback) => {
     const allowedOrigins = [
       ENV.CLIENT_URL,
+      // Explicitly allow the admin frontend URL which was blocked
+      "https://rn-ecommerce-admin.vercel.app",
     ];
+
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      // Allow all .vercel.app subdomains and Inngest for webhooks
       if (origin.endsWith(".vercel.app") || origin.includes("inngest.com")) {
         callback(null, true);
       } else {
         callback(new Error(`Not allowed by CORS: ${origin}`), false);
       }
     }
-  }, credentials: true
+  },
+  credentials: true,
+  // Crucial for Vercel/serverless environments to ensure the preflight OPTIONS request returns a 200 OK
+  optionsSuccessStatus: 200
 })); // credentials: true allows the browser to send the cookies to the server with the request
 
 app.use("/api/inngest", serve({ client: inngest, functions }));
