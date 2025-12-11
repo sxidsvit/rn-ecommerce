@@ -13,8 +13,6 @@ function OrdersPage() {
     queryFn: () => orderApi.getAll(apiClient),
   });
 
-  console.log('OrdersPage - ordersData: ', ordersData);
-
   const updateStatusMutation = useMutation({
     mutationFn: orderApi.updateStatus,
     onSuccess: () => {
