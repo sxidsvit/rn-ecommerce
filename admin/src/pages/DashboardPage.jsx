@@ -1,18 +1,25 @@
 import { useQuery } from "@tanstack/react-query";
-import { orderApi, statsApi } from "../lib/api";
 import { DollarSignIcon, PackageIcon, ShoppingBagIcon, UsersIcon } from "lucide-react";
 import { capitalizeText, formatDate, getOrderStatusBadge } from "../lib/utils";
+import { orderApi, statsApi } from "../lib/api";
+import { useApi } from "../lib/axios";
+
 
 function DashboardPage() {
+
+  const apiClient = useApi();
+
   const { data: ordersData, isLoading: ordersLoading } = useQuery({
     queryKey: ["orders"],
-    queryFn: orderApi.getAll,
+    queryFn: () => orderApi.getAll(apiClient),
   });
+
 
   const { data: statsData, isLoading: statsLoading } = useQuery({
     queryKey: ["dashboardStats"],
-    queryFn: statsApi.getDashboard,
+    queryFn: () => statsApi.getDashboard(apiClient),
   });
+
 
   // it would be better to send the last 5 items from the api, instead of slicing it here
   // but we're just keeping it simple here...

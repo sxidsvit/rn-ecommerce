@@ -1,12 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import { customerApi } from "../lib/api";
 import { formatDate } from "../lib/utils";
+import { useApi } from "../lib/axios";
 
 function CustomersPage() {
+
+  const apiClient = useApi();
+
   const { data, isLoading } = useQuery({
     queryKey: ["customers"],
-    queryFn: customerApi.getAll,
+    queryFn: () => customerApi.getAll,
   });
+  console.log('CustomersPage - data: ', data);
 
   const customers = data?.customers || [];
 
