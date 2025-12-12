@@ -1,252 +1,202 @@
-<h1 align="center">✨ Full-Stack E-Commerce App (Mobile + Admin + API) ✨</h1>
+# RN E-Commerce (Full Stack)
 
-![Demo App](/admin/public/screenshot-for-readme.png)
-
-✨ **Highlights:**
-
-- 📱 Fully Functional E-Commerce Mobile App (React Native + Expo)
-- 🔐 Secure Authentication with Clerk (Google & Apple sign-in)
-- 🛒 Cart, Favorites, Checkout & Orders Flow
-- 💳 Stripe-Powered Payments
-- 🗺️ Addresses System
-- 🏪 Admin Dashboard — Products, Orders, Customers & Stats
-- ⚙️ Complete REST API (Node.js + Express) with Auth & Roles
-- 🛂 Admin-Only Protected Routes
-- 📦 Background Jobs with Inngest
-- 🧭 Dashboard with Live Analytics
-- 🛠️ Product Management (CRUD, image handling, pricing, etc.)
-- 📦 Order Management
-- 👥 Customer Management Page
-- 🛡️ Sentry Integration for monitoring & error tracking
-- 🚀 Deployment on Sevalla (API + Admin Dashboard)
-- 🖼️ Product Image Slider
-- ⚡ Data Fetching & Caching with TanStack Query
-- 🧰 End-to-End Git & GitHub Workflow (branches, commits, PRs, code reviews)
-- 🤖 CodeRabbit PR Analysis (security, quality, optimization)
+### A full-featured E-commerce application including a mobile client (Expo), admin panel (React + Vite), and a powerful backend (Node.js + Express). The project is built on a modern tech stack using Inngest for background jobs and Clerk for authentication.
 
 ---
 
-## 🧪 `.env` Setup
+[![More detailed documentation on this repository](https://deepwiki.com/badge.svg)](https://deepwiki.com/sxidsvit/rn-ecommerce)
 
-### 🟦 Backend (`/backend`)
+---
+
+🔗 Demo and Links
+
+Service
+
+- Admin Panel https://rn-ecommerce-admin.vercel.app
+
+- Backend API https://rn-ecommerce-backend.vercel.app
+
+## 🛠️ Tech Stack
+
+### 📱 Mobile App
+
+Framework: React Native (via Expo)
+Styling: NativeWind & TailwindCSSЫ
+Routing: Expo Router
+Auth: Clerk
+Monitoring: Sentry
+
+### 💻 Frontend (Admin Dashboard)
+
+Framework: React.js + Vite
+UI Kit: Shadcn/ui + TailwindCSS
+State Management: TanStack Query
+Auth: Clerk (React SDK)
+
+### ⚙️ Backend (API)
+
+Runtime: Node.js
+Framework: Express.js
+Database: MongoDB (Mongoose)
+Background Jobs: Inngest (Serverless queues)
+Image Storage: Cloudinary
+Payments: Stripe
+
+---
+
+<!-- ![]()<img src="demo.gif" alt="demo gif" width="951" height="482" style="display: block; margin-left:100px ;"> -->
+
+---
+
+## ✨ Key Features
+
+Authentication: Secure login via Google/Email using Clerk.
+Product Management: Full CRUD for products, categories, and brands via the admin panel.
+Cart & Orders: Cart synchronization, checkout process, purchase history.
+Payments: Stripe integration for payment processing.
+Background Jobs: Using Inngest for event processing (e.g., sending emails after purchase).
+Media: Image upload and optimization via Cloudinary.
+Monitoring: Error tracking with Sentry.
+
+## 🚀 Run Locally
+
+Follow the instructions below to configure each component of the system.
+
+### Prerequisites
+
+Node.js (v18+)
+MongoDB (local or Atlas)
+Accounts in Clerk, Cloudinary, Inngest
+
+1. Clone the repository
+
+git clone [https://github.com/sxidsvit/rn-ecommerce.git](https://github.com/sxidsvit/rn-ecommerce.git)
+cd rn-ecommerce
+
+2. Backend Setup
+
+Navigate to the backend folder, install dependencies, and configure environment variables.
+
+cd backend
+npm install
+
+Create a .env file in the root of the backend folder and add:
 
 ```bash
 NODE_ENV=development
 PORT=3000
-
-DB_URL=<YOUR_DB_URL>
-
-CLERK_PUBLISHABLE_KEY=<YOUR_CLERK_PUBLISHABLE_KEY>
-CLERK_SECRET_KEY=<YOUR_CLERK_SECRET_KEY>
-
-INNGEST_SIGNING_KEY=<YOUR_INNGEST_SIGNING_KEY>
-
-CLOUDINARY_API_KEY=<YOUR_CLOUDINARY_API_KEY>
-CLOUDINARY_API_SECRET=<YOUR_CLOUDINARY_API_SECRET>
-CLOUDINARY_CLOUD_NAME=<YOUR_CLOUDINARY_CLOUD_NAME>
-
-ADMIN_EMAIL=<YOUR_ADMIN_EMAIL>
-
+DB_URL=your_mongodb_connection_string
+CLERK_PUBLISHABLE_KEY=pk_test*...
+CLERK_SECRET_KEY=sk_test*...
+INNGEST_SIGNING_KEY=your_inngest_key
+CLOUDINARY_API_KEY=your_cloudinary_key
+CLOUDINARY_API_SECRET=your_cloudinary_secret
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+ADMIN_EMAIL=admin@example.com
 CLIENT_URL=http://localhost:5173
 ```
 
----
+Start the server:
 
-### 🟩 Admin Dashboard (/admin)
+npm run dev
+
+3. Admin Frontend Setup
+
+Navigate to the admin panel folder (usually admin or frontend).
+
+cd ../admin
+npm install
+
+Create a .env file in the root of the admin folder:
 
 ```bash
-VITE_CLERK_PUBLISHABLE_KEY=<YOUR_CLERK_PUBLISHABLE_KEY>
-VITE_API_URL=http://localhost:3000/api
+NODE_ENV=development
+PORT=3000
+DB_URL=your_mongodb_connection_string
+CLERK_PUBLISHABLE_KEY=pk_test*...
+CLERK_SECRET_KEY=sk_test*...
+INNGEST_SIGNING_KEY=your_inngest_key
+CLOUDINARY_API_KEY=your_cloudinary_key
+CLOUDINARY_API_SECRET=your_cloudinary_secret
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+ADMIN_EMAIL=admin@example.com
+CLIENT_URL=http://localhost:5173
+```
 
+Start the server:
+
+npm run dev
+
+3. Admin Frontend Setup
+
+Navigate to the admin panel folder (usually admin or frontend).
+
+cd ../admin
+npm install
+
+Create a .env file in the root of the admin folder:
+
+```bash
+VITE_CLERK_PUBLISHABLE_KEY=pk_test...
+VITE_API_URL=http://localhost:3000
 VITE_SENTRY_DSN=<YOUR_SENTRY_DSN>
 ```
 
----
+```bash
+VITE_CLERK_PUBLISHABLE_KEY=pk_test...
+VITE_API_URL=http://localhost:3000
+VITE_SENTRY_DSN=<YOUR_SENTRY_DSN>
+```
 
-### 🟧 Mobile App (/mobile)
+Start the client:
+
+npm run dev
+Start the client:
+
+npm run dev
+
+4. Mobile App Setup
+5. Mobile App Setup
+
+Navigate to the mobile app folder.
+Navigate to the mobile app folder.
+
+cd ../mobile
+npm install
+cd ../mobile
+npm install
+
+Create a .env file in the root of the mobile app folder:
+Create a .env file in the root of the mobile app folder:
 
 ```bash
-EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY= <YOUR_CLERK_PUBLISHABLE_KEY>
-
+PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test
+SENTRY_AUTH_TOKEN=<YOUR_SENTRY_DSN>
+PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test
 SENTRY_AUTH_TOKEN=<YOUR_SENTRY_DSN>
 ```
 
-## 🔧 Run the Backend
+Start Expo:
 
-```bash
-
-cd backend
-npm install
-npm run dev
-```
-
----
-
-## 🔧 Run the Admin
-
-```
-bash
-cd admin
-npm install
-npm run dev
-```
-
----
-
-## 🔧 Run the Mobile
-
-```
-bash
-cd mobile
-npm install
 npx expo start
-*And then scan the QR Code from your phone*
-```
+Start Expo:
 
----
+npx expo start
 
-<h1 align="center">Real Time Screening Interview Platform ✨</h1>
+📂 Project Structure
+📂 Project Structure
 
-![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
-![Stream.io](https://img.shields.io/badge/Stream-FF7A00?style=for-the-badge&logo=stream&logoColor=white)
+rn-ecommerce/
+├── admin/ # React Admin Dashboard
+├── backend/ # Node.js/Express API
+└── mobile/ # React Native Expo App
 
----
+📬 Connect with me
 
-### ✨ [Site](https://rts-interview-platform-sxidsvit.vercel.app/)
+<a href="https://www.google.com/search?q=https://www.linkedin.com/in/sergiy-antonyuk/" target="_blank">
+<img alt="Sergiy Antonyuk | LinkedIn" src="https://img.shields.io/badge/LinkedIn-0077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
+</a>
 
----
+🙏 Acknowledgements
 
-✨ Highlights:
-
-- 🔐 Authentication via Clerk
-- 🎥 1-on-1 Video Interview Rooms
-- 🧭 Dashboard with Live Stats
-- 🔊 Mic & Camera Toggle, Screen Sharing & Recording
-- 💬 Real-time Chat Messaging
-- ⚙️ Secure Code Execution in Isolated Environment
-- 🎯 Auto Feedback — Success / Fail based on test cases
-- 🎉 Confetti on Success + Notifications on Fail
-- 🧩 Practice Problems Page (solo coding mode)
-- 🔒 Room Locking — allows only 2 participants
-- 🧠 Background Jobs with Inngest (async tasks)
-- 🧰 REST API with Node.js & Express
-- ⚡ Data Fetching & Caching via TanStack Query
-- 🚀 Deployment on Vercel
-
-### ✨ Key Features
-
-- **Real-Time Video Calls:** Conduct interviews using built-in audio and video communication powered by Stream Video.
-- **Collaborative Code Editor:** A shared, interactive code editor for collaboratively solving algorithmic tasks and evaluating programming skills.
-- **Authentication:** Secure and fast user authentication for interviewers and candidates using **Clerk**.
-- **Session Management:** Create and manage unique interview sessions (`callId`) tied to specific problems (`problem`, `difficulty`) and sessions (`sessionId`).
-
-### ⚙️ Tech Stack
-
-| Category             | Technology         | Description                                                                       | Documentation Link                                      |
-| :------------------- | :----------------- | :-------------------------------------------------------------------------------- | :------------------------------------------------------ |
-| **Framework**        | Next.js            | A React framework for building full-stack web applications.                       | [Next.js Docs](https://nextjs.org/docs)                 |
-| **Language**         | TypeScript         | Strictly typed superset of JavaScript for improved code reliability.              | [TypeScript Docs](https://www.typescriptlang.org/docs/) |
-| **Real-Time**        | Stream Video       | API for rapid integration of audio and video calling features.                    | [Stream Video Docs](https://getstream.io/video/docs/)   |
-| **Authentication**   | Clerk              | A complete solution for user authentication and management.                       | [Clerk Docs](https://clerk.com/docs)                    |
-| **Styling**          | Tailwind CSS       | A utility-first CSS framework for rapid UI development.                           | [Tailwind CSS Docs](https://tailwindcss.com/docs)       |
-| **Database**         | MongoDB / Mongoose | A flexible, scalable NoSQL database (if applicable).                              | [MongoDB Docs](https://www.mongodb.com/docs/)           |
-| **Background Tasks** | Inngest            | Robust platform for running background tasks, scheduling and processing webhooks. | [Inngest Docs](https://www.inngest.com/docs)            |
-
----
-
-![]()<img src="demo.gif" alt="demo gif" width="654" height="322" style="display: block; margin-left:100px ;">
-
----
-
-### 🛠️ Getting Started
-
-Follow these steps to set up the project locally.
-
-#### 1. Prerequisites
-
-Ensure you have the following installed:
-
-- Node.js (v18+ recommended)
-- npm or Yarn
-
-#### 2. Installation
-
-1.  Clone the repository:
-    ```bash
-    git clone [https://github.com/sxidsvit/rts-interview-platform.git](https://github.com/sxidsvit/rts-interview-platform.git)
-    cd rts-interview-platform
-    ```
-2.  Install dependencies:
-    ```bash
-    npm install
-    # or
-    yarn install
-    ```
-
-### 🧪 .env Setup
-
-#### Backend (`/backend`)
-
-```bash
-PORT=3000
-NODE_ENV=development
-
-DB_URL=your_mongodb_connection_url
-
-INNGEST_EVENT_KEY=your_inngest_event_key
-INNGEST_SIGNING_KEY=your_inngest_signing_key
-
-STREAM_API_KEY=your_stream_api_key
-STREAM_API_SECRET=your_stream_api_secret
-
-CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
-CLERK_SECRET_KEY=your_clerk_secret_key
-
-CLIENT_URL=http://localhost:5173
-```
-
-#### Frontend (`/frontend`)
-
-```bash
-VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
-
-VITE_API_URL=http://localhost:3000/api
-
-VITE_STREAM_API_KEY=your_stream_api_key
-```
-
----
-
-### 🔧 Run the Backend
-
-```bash
-
-cd backend
-npm install
-npm run dev
-```
-
----
-
-### 🔧 Run the Frontend
-
-```
-bash
-cd frontend
-npm install
-npm run dev
-```
-
-### 📬 Contact
-
-Connect with the project maintainer:
-
-[<img alt="Sergiy Antonyuk | LinkedIn" src="https://img.shields.io/badge/LinkedIn-0077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />][linkedin]
-
-[linkedin]: https://www.linkedin.com/in/sergiy-antonyuk/
-
-#### 🙏 Acknowledgements
-
-A heartfelt thank you to [Codesistency](https://www.youtube.com/@codesistency/) for his invaluable contributions
+A heartfelt thank you to [Codesistency](https://www.youtube.com/@codesistency/featured) for his invaluable contributions
