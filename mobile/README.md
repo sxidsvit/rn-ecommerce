@@ -1,50 +1,149 @@
-# Welcome to your Expo app 👋
+# RN E-Commerce (Full Stack)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+### A full-featured E-commerce application including a mobile client (Expo), admin panel (React + Vite), and a powerful backend (Node.js + Express). The project is built on a modern tech stack using Inngest for background jobs and Clerk for authentication.
 
-## Get started
+🔗 Demo and Links
 
-1. Install dependencies
+Service
 
-   ```bash
-   npm install
-   ```
+- Admin Panel https://rn-ecommerce-admin.vercel.app
 
-2. Start the app
+- Backend API https://rn-ecommerce-backend.vercel.app
 
-   ```bash
-   npx expo start
-   ```
+## 🛠️ Tech Stack
 
-In the output, you'll find options to open the app in a
+### 📱 Mobile App
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Framework: React Native (via Expo)
+Styling: NativeWind & TailwindCSS
+Routing: Expo Router
+Auth: Clerk
+Monitoring: Sentry
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### 💻 Frontend (Admin Dashboard)
 
-## Get a fresh project
+Framework: React.js + Vite
+UI Kit: Shadcn/ui + TailwindCSS
+State Management: TanStack Query
+Auth: Clerk (React SDK)
 
-When you're ready, run:
+### ⚙️ Backend (API)
+
+Runtime: Node.js
+Framework: Express.js
+Database: MongoDB (Mongoose)
+Background Jobs: Inngest (Serverless queues)
+Image Storage: Cloudinary
+Payments: Stripe
+
+---
+
+<!-- ![]()<img src="demo.gif" alt="demo gif" width="951" height="482" style="display: block; margin-left:100px ;"> -->
+
+---
+
+## ✨ Key Features
+
+Authentication: Secure login via Google/Email using Clerk.
+Product Management: Full CRUD for products, categories, and brands via the admin panel.
+Cart & Orders: Cart synchronization, checkout process, purchase history.
+Payments: Stripe integration for payment processing.
+Background Jobs: Using Inngest for event processing (e.g., sending emails after purchase).
+Media: Image upload and optimization via Cloudinary.
+Monitoring: Error tracking with Sentry.
+
+## 🚀 Run Locally
+
+Follow the instructions below to configure each component of the system.
+
+### Prerequisites
+
+Node.js (v18+)
+MongoDB (local or Atlas)
+Accounts in Clerk, Cloudinary, Inngest
+
+1. Clone the repository
+
+git clone [https://github.com/sxidsvit/rn-ecommerce.git](https://github.com/sxidsvit/rn-ecommerce.git)
+cd rn-ecommerce
+
+2. Backend Setup
+
+Navigate to the backend folder, install dependencies, and configure environment variables.
+
+cd backend
+npm install
+
+Create a .env file in the root of the backend folder and add:
 
 ```bash
-npm run reset-project
+NODE_ENV=development
+PORT=3000
+DB_URL=your_mongodb_connection_string
+CLERK_PUBLISHABLE_KEY=pk_test*...
+CLERK*SECRET_KEY=sk_test*...
+INNGEST_SIGNING_KEY=your_inngest_key
+CLOUDINARY_API_KEY=your_cloudinary_key
+CLOUDINARY_API_SECRET=your_cloudinary_secret
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+ADMIN_EMAIL=admin@example.com
+CLIENT_URL=http://localhost:5173
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Start the server:
 
-## Learn more
+npm run dev
 
-To learn more about developing your project with Expo, look at the following resources:
+3. Admin Frontend Setup
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Navigate to the admin panel folder (usually admin or frontend).
 
-## Join the community
+cd ../admin
+npm install
 
-Join our community of developers creating universal apps.
+Create a .env file in the root of the admin folder:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+VITE_CLERK_PUBLISHABLE_KEY=pk_test...
+VITE_API_URL=http://localhost:3000
+VITE_SENTRY_DSN=<YOUR_SENTRY_DSN>
+```
+
+Start the client:
+
+npm run dev
+
+4. Mobile App Setup
+
+Navigate to the mobile app folder.
+
+cd ../mobile
+npm install
+
+Create a .env file in the root of the mobile app folder:
+
+```bash
+PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test
+SENTRY_AUTH_TOKEN=<YOUR_SENTRY_DSN>
+```
+
+Start Expo:
+
+npx expo start
+
+📂 Project Structure
+
+rn-ecommerce/
+├── admin/ # React Admin Dashboard
+├── backend/ # Node.js/Express API
+└── mobile/ # React Native Expo App
+
+📬 Connect with me
+
+<a href="https://www.google.com/search?q=https://www.linkedin.com/in/sergiy-antonyuk/" target="_blank">
+<img alt="Sergiy Antonyuk | LinkedIn" src="https://img.shields.io/badge/LinkedIn-0077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
+</a>
+
+🙏 Acknowledgements
+
+A heartfelt thank you to [Codesistency](https://www.youtube.com/@codesistency/featured) for his invaluable contributions
