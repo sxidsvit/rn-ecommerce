@@ -87,7 +87,34 @@ NODE_ENV=development
 PORT=3000
 DB_URL=your_mongodb_connection_string
 CLERK_PUBLISHABLE_KEY=pk_test*...
-CLERK*SECRET_KEY=sk_test*...
+CLERK_SECRET_KEY=sk_test*...
+INNGEST_SIGNING_KEY=your_inngest_key
+CLOUDINARY_API_KEY=your_cloudinary_key
+CLOUDINARY_API_SECRET=your_cloudinary_secret
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+ADMIN_EMAIL=admin@example.com
+CLIENT_URL=http://localhost:5173
+```
+
+Start the server:
+
+npm run dev
+
+3. Admin Frontend Setup
+
+Navigate to the admin panel folder (usually admin or frontend).
+
+cd ../admin
+npm install
+
+Create a .env file in the root of the admin folder:
+
+```bash
+NODE_ENV=development
+PORT=3000
+DB_URL=your_mongodb_connection_string
+CLERK_PUBLISHABLE_KEY=pk_test*...
+CLERK_SECRET_KEY=sk_test*...
 INNGEST_SIGNING_KEY=your_inngest_key
 CLOUDINARY_API_KEY=your_cloudinary_key
 CLOUDINARY_API_SECRET=your_cloudinary_secret
@@ -115,20 +142,36 @@ VITE_API_URL=http://localhost:3000
 VITE_SENTRY_DSN=<YOUR_SENTRY_DSN>
 ```
 
+```bash
+VITE_CLERK_PUBLISHABLE_KEY=pk_test...
+VITE_API_URL=http://localhost:3000
+VITE_SENTRY_DSN=<YOUR_SENTRY_DSN>
+```
+
+Start the client:
+
+npm run dev
 Start the client:
 
 npm run dev
 
 4. Mobile App Setup
+5. Mobile App Setup
 
+Navigate to the mobile app folder.
 Navigate to the mobile app folder.
 
 cd ../mobile
 npm install
+cd ../mobile
+npm install
 
+Create a .env file in the root of the mobile app folder:
 Create a .env file in the root of the mobile app folder:
 
 ```bash
+PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test
+SENTRY_AUTH_TOKEN=<YOUR_SENTRY_DSN>
 PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test
 SENTRY_AUTH_TOKEN=<YOUR_SENTRY_DSN>
 ```
@@ -136,7 +179,11 @@ SENTRY_AUTH_TOKEN=<YOUR_SENTRY_DSN>
 Start Expo:
 
 npx expo start
+Start Expo:
 
+npx expo start
+
+📂 Project Structure
 📂 Project Structure
 
 rn-ecommerce/
