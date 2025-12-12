@@ -34,7 +34,7 @@ app.use(cors({
       callback(null, true);
     } else {
       // Allow all .vercel.app subdomains and Inngest for webhooks
-      if (origin.endsWith(".vercel.app") || origin.includes("inngest.com")) {
+      if (origin.endsWith(".vercel.app") || origin.includes("inngest.com") || origin.includes("localhost:8081")) {
         callback(null, true);
       } else {
         callback(new Error(`Not allowed by CORS: ${origin}`), false);
