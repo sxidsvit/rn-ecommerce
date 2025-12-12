@@ -1,6 +1,6 @@
-# RN E-Commerce (Full Stack)
+## E-Commerce (React Native + React + Express)
 
-### A full-featured E-commerce application including a mobile client (Expo), admin panel (React + Vite), and a powerful backend (Node.js + Express). The project is built on a modern tech stack using Inngest for background jobs and Clerk for authentication.
+##### _A full-featured E-commerce application including a mobile client (Expo), admin panel (React + Vite), and a powerful backend (Node.js + Express). The project is built on a modern tech stack using Inngest for background jobs and Clerk for authentication._
 
 ---
 
@@ -20,27 +20,27 @@ Service
 
 ### 📱 Mobile App
 
-Framework: React Native (via Expo)
-Styling: NativeWind & TailwindCSSЫ
-Routing: Expo Router
-Auth: Clerk
-Monitoring: Sentry
+- Framework: React Native (via Expo)
+- Styling: NativeWind & TailwindCSSЫ
+- Routing: Expo Router
+- Auth: Clerk
+- Monitoring: Sentry
 
 ### 💻 Frontend (Admin Dashboard)
 
-Framework: React.js + Vite
-UI Kit: Shadcn/ui + TailwindCSS
-State Management: TanStack Query
-Auth: Clerk (React SDK)
+- Framework: React.js + Vite
+- UI Kit: Shadcn/ui + TailwindCSS
+- State Management: TanStack Query
+- Auth: Clerk (React SDK)
 
 ### ⚙️ Backend (API)
 
-Runtime: Node.js
-Framework: Express.js
-Database: MongoDB (Mongoose)
-Background Jobs: Inngest (Serverless queues)
-Image Storage: Cloudinary
-Payments: Stripe
+- Runtime: Node.js
+- Framework: Express.js
+- Database: MongoDB (Mongoose)
+- Background Jobs: Inngest (Serverless queues)
+- Image Storage: Cloudinary
+- Payments: Stripe
 
 ---
 
@@ -50,13 +50,17 @@ Payments: Stripe
 
 ## ✨ Key Features
 
-Authentication: Secure login via Google/Email using Clerk.
-Product Management: Full CRUD for products, categories, and brands via the admin panel.
-Cart & Orders: Cart synchronization, checkout process, purchase history.
-Payments: Stripe integration for payment processing.
-Background Jobs: Using Inngest for event processing (e.g., sending emails after purchase).
-Media: Image upload and optimization via Cloudinary.
-Monitoring: Error tracking with Sentry.
+- Authentication: Secure login via Google/Email using Clerk.
+- Product Management: Full CRUD for products, categories, and brands via the admin panel.
+- Cart & Orders: Cart synchronization, checkout process, purchase history.
+- Payments: Stripe integration for payment processing.
+- Background Jobs: Using Inngest for event processing (e.g., sending emails after purchase).
+- Media: Image upload and optimization via Cloudinary.
+- Monitoring: Error tracking with Sentry.
+
+## 📂 Database structure
+
+## ![]()<img src="db-structure.png" alt="database structure" width="748" height="982" style="display: block; margin-left:100px ;">
 
 ## 🚀 Run Locally
 
@@ -64,9 +68,9 @@ Follow the instructions below to configure each component of the system.
 
 ### Prerequisites
 
-Node.js (v18+)
-MongoDB (local or Atlas)
-Accounts in Clerk, Cloudinary, Inngest
+- Node.js (v18+)
+- MongoDB (local or Atlas)
+- Accounts in Clerk, Cloudinary, Inngest
 
 1. Clone the repository
 
