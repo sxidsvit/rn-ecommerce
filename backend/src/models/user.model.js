@@ -55,6 +55,10 @@ const userSchema = new mongoose.Schema(
       unique: true,
       required: true,
     },
+    stripeCustomerId: {
+      type: String,
+      default: "",
+    },
     addresses: [addressSchema],
     wishlist: [
       {
@@ -66,4 +70,4 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export const User = mongoose.model("User", userSchema);
+export const User = mongoose.model("User", userSchema); 
