@@ -14,6 +14,7 @@ import orderRoutes from "./src/routes/order.route.js";
 import reviewRoutes from "./src/routes/review.route.js";
 import productRoutes from "./src/routes/product.route.js";
 import cartRoutes from "./src/routes/cart.route.js";
+import paymentRoutes from "./src/routes/payment.route.js";
 
 connectDB();
 
