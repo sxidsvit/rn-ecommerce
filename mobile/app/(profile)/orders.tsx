@@ -22,7 +22,7 @@ function OrdersScreen() {
     setShowRatingModal(true);
     setSelectedOrder(order);
 
-    // init ratings for all product to 0 - resettin the state for each product
+    // init ratings for all product to 0 - resetting the state for each product
     const initialRatings: { [key: string]: number } = {};
     order.orderItems.forEach((item) => {
       const productId = item.product._id;
