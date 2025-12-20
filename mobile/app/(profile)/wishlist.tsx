@@ -1,3 +1,5 @@
+import { ErrorState } from "@/components/ErrorState";
+import LoadingState from "@/components/LoadingState";
 import SafeScreen from "@/components/SafeScreen";
 import useCart from "@/hooks/useCart";
 import useWishlist from "@/hooks/useWishlist";
@@ -36,8 +38,8 @@ function WishlistScreen() {
     );
   };
 
-  if (isLoading) return <LoadingUI />;
-  if (isError) return <ErrorUI />;
+  if (isLoading) return <LoadingState />;
+  if (isError) return <ErrorState />;
 
   return (
     <SafeScreen>
@@ -147,42 +149,3 @@ function WishlistScreen() {
   );
 }
 export default WishlistScreen;
-
-function LoadingUI() {
-  return (
-    <SafeScreen>
-      <View className="px-6 pb-5 border-b border-surface flex-row items-center">
-        <TouchableOpacity onPress={() => router.back()} className="mr-4">
-          <Ionicons name="arrow-back" size={28} color="#FFFFFF" />
-        </TouchableOpacity>
-        <Text className="text-text-primary text-2xl font-bold">Wishlist</Text>
-      </View>
-      <View className="flex-1 items-center justify-center">
-        <ActivityIndicator size="large" color="#00D9FF" />
-        <Text className="text-text-secondary mt-4">Loading wishlist...</Text>
-      </View>
-    </SafeScreen>
-  );
-}
-
-function ErrorUI() {
-  return (
-    <SafeScreen>
-      <View className="px-6 pb-5 border-b border-surface flex-row items-center">
-        <TouchableOpacity onPress={() => router.back()} className="mr-4">
-          <Ionicons name="arrow-back" size={28} color="#fff" />
-        </TouchableOpacity>
-        <Text className="text-text-primary text-2xl font-bold">Wishlist</Text>
-      </View>
-      <View className="flex-1 items-center justify-center px-6">
-        <Ionicons name="alert-circle-outline" size={64} color="#FF6B6B" />
-        <Text className="text-text-primary font-semibold text-xl mt-4">
-          Failed to load wishlist
-        </Text>
-        <Text className="text-text-secondary text-center mt-2">
-          Please check your connection and try again
-        </Text>
-      </View>
-    </SafeScreen>
-  );
-}

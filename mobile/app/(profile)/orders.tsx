@@ -1,3 +1,6 @@
+import { EmptyState } from "@/components/EmptyState";
+import { ErrorState } from "@/components/ErrorState";
+import LoadingState from "@/components/LoadingState";
 import RatingModal from "@/components/RatingModal";
 import SafeScreen from "@/components/SafeScreen";
 import { useOrders } from "@/hooks/useOrders";
@@ -72,11 +75,11 @@ function OrdersScreen() {
       </View>
 
       {isLoading ? (
-        <LoadingUI />
+        <LoadingState />
       ) : isError ? (
-        <ErrorUI />
+        <ErrorState />
       ) : !orders || orders.length === 0 ? (
-        <EmptyUI />
+        <EmptyState />
       ) : (
         <ScrollView
           className="flex-1"
@@ -188,37 +191,4 @@ function OrdersScreen() {
     </SafeScreen>
   );
 }
-export default OrdersScreen;
-
-function LoadingUI() {
-  return (
-    <View className="flex-1 items-center justify-center">
-      <ActivityIndicator size="large" color="#00D9FF" />
-      <Text className="text-text-secondary mt-4">Loading orders...</Text>
-    </View>
-  );
-}
-
-function ErrorUI() {
-  return (
-    <View className="flex-1 items-center justify-center px-6">
-      <Ionicons name="alert-circle-outline" size={64} color="#FF6B6B" />
-      <Text className="text-text-primary font-semibold text-xl mt-4">Failed to load orders</Text>
-      <Text className="text-text-secondary text-center mt-2">
-        Please check your connection and try again
-      </Text>
-    </View>
-  );
-}
-
-function EmptyUI() {
-  return (
-    <View className="flex-1 items-center justify-center px-6">
-      <Ionicons name="receipt-outline" size={80} color="#666" />
-      <Text className="text-text-primary font-semibold text-xl mt-4">No orders yet</Text>
-      <Text className="text-text-secondary text-center mt-2">
-        Your order history will appear here
-      </Text>
-    </View>
-  );
-}
+export default OrdersScreen; 
