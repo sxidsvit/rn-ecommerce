@@ -157,7 +157,7 @@ const CartScreen = () => {
     }
   };
 
-  if (isLoading) return <LoadingState />;
+  if (isLoading) return <LoadingState message="Loading cart ..." />;
   if (isError) return <ErrorState />;
   if (cartItems.length === 0) return <EmptyState />;
 

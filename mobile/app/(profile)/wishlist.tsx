@@ -38,7 +38,7 @@ function WishlistScreen() {
     );
   };
 
-  if (isLoading) return <LoadingState />;
+  if (isLoading) return <LoadingState message = "Loading wishlist ..."/>;
   if (isError) return <ErrorState />;
 
   return (

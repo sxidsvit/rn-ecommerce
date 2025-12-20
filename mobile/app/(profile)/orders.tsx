@@ -75,7 +75,7 @@ function OrdersScreen() {
       </View>
 
       {isLoading ? (
-        <LoadingState />
+        <LoadingState message="Loading orders ..." />
       ) : isError ? (
         <ErrorState />
       ) : !orders || orders.length === 0 ? (

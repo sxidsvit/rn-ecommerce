@@ -123,7 +123,7 @@ function AddressesScreen() {
     setEditingAddressId(null);
   };
 
-  if (isLoading) return <LoadingState />;
+  if (isLoading) return <LoadingState message = "Loading addresses ..." />;
   if (isError) return <ErrorState />;
 
   return (

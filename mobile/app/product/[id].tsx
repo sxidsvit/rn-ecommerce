@@ -44,7 +44,7 @@ const ProductDetailScreen = () => {
     );
   };
 
-  if (isLoading) return <LoadingState />;
+  if (isLoading) return <LoadingState message = "Loading product ..." />;
   if (isError || !product) return <ErrorState />;
 
   const inStock = product.stock > 0;
