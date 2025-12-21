@@ -7,7 +7,8 @@ import * as Sentry from "@sentry/react-native";
 import { StripeProvider } from "@stripe/stripe-react-native";
 
 Sentry.init({
-  dsn: "https://fb6731b90610cc08333e6c16ffac5724@o4509813037137920.ingest.de.sentry.io/4510451611205712",
+  dsn: "https://24ebd66447323ad439b8b6111acaa493@o4507687027736576.ingest.de.sentry.io/4510574375600208",
+
 
   // Adds more context data to events (IP address, cookies, user, etc.)
   // For more information, visit: https://docs.sentry.io/platforms/react-native/data-management/data-collected/
