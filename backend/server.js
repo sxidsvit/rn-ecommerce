@@ -14,7 +14,7 @@ import orderRoutes from "./src/routes/order.route.js";
 import reviewRoutes from "./src/routes/review.route.js";
 import productRoutes from "./src/routes/product.route.js";
 import cartRoutes from "./src/routes/cart.route.js";
-import paymentRoutes from "./src/routes/payment.route.js";
+// import paymentRoutes from "./src/routes/payment.route.js";
 
 connectDB();
 
@@ -22,17 +22,17 @@ const app = express();
 
 // special handling: Stripe webhook needs raw body BEFORE any body parsing middleware
 // apply raw body parser conditionally only to webhook endpoint
-app.use(
-  "/api/payment",
-  (req, res, next) => {
-    if (req.originalUrl === "/api/payment/webhook") {
-      express.raw({ type: "application/json" })(req, res, next);
-    } else {
-      express.json()(req, res, next); // parse json for non-webhook routes
-    }
-  },
-  paymentRoutes
-);
+// app.use(
+//   "/api/payment",
+//   (req, res, next) => {
+//     if (req.originalUrl === "/api/payment/webhook") {
+//       express.raw({ type: "application/json" })(req, res, next);
+//     } else {
+//       express.json()(req, res, next); // parse json for non-webhook routes
+//     }
+//   },
+//   paymentRoutes
+// );
 
 app.use(express.json());
 app.use(clerkMiddleware()); // adds auth object under the req => req.auth
