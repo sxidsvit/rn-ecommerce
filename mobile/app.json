@@ -45,7 +45,7 @@
         "@sentry/react-native/expo",
         {
           "url": "https://sentry.io/",
-          "project": "ecommerce-tut",
+          "project": "rn-ecommerce-mobile",
           "organization": "codesistency-gs"
         }
       ],

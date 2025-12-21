@@ -1,5 +1,5 @@
 {
-  "name": "expo-ecommerce",
+  "name": "rn-ecommerce",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/burakorkmez/expo-ecommerce.git"
+    "url": "git+https://github.com/sxidsvit/rn-ecommerce.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/burakorkmez/expo-ecommerce/issues"
+    "url": "https://github.com/sxidsvit/rn-ecommerce/issues"
   },
-  "homepage": "https://github.com/burakorkmez/expo-ecommerce#readme"
+  "homepage": "https://github.com/sxidsvit/rn-ecommerce#readme"
 }
