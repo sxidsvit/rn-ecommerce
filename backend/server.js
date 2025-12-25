@@ -44,7 +44,11 @@ app.use(cors({
       "https://rn-ecommerce-admin.vercel.app",
     ];
 
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin) {
+      return callback(null, true);
+    }
+
+    if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       // Allow all .vercel.app subdomains and Inngest for webhooks

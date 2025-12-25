@@ -61,9 +61,9 @@ export default Sentry.wrap(function RootLayout() {
   return (
     <ClerkProvider tokenCache={tokenCache}>
       <QueryClientProvider client={queryClient}>
-        <StripeProvider publishableKey={process.env.EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY!}>
+        {/* <StripeProvider publishableKey={process.env.EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY!}> */}
           <Stack screenOptions={{ headerShown: false }} />
-        </StripeProvider>
+        {/* </StripeProvider> */}
       </QueryClientProvider>
     </ClerkProvider>
   );
