@@ -43,6 +43,7 @@ if (__DEV__) {
 }
 
 export const useApi = () => {
+  console.warn("useApi hook initialized!"); j
   const { getToken } = useAuth();
 
   useEffect(() => {
