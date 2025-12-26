@@ -1,6 +1,6 @@
 ## E-Commerce (React Native + React + Express)
 
-##### _A full-featured E-commerce application including a mobile client (Expo), admin panel (React + Vite), and a powerful backend (Node.js + Express). The project is built on a modern tech stack using Inngest for background jobs and Clerk for authentication._
+###### A full-featured E-commerce application including a mobile client (Expo), admin panel (React + Vite), and a powerful backend (Node.js + Express). The project is built on a modern tech stack using Inngest for background jobs and Clerk for authentication.
 
 [![More detailed documentation on this repository](https://deepwiki.com/badge.svg)](https://deepwiki.com/sxidsvit/rn-ecommerce)
 
@@ -49,15 +49,13 @@
 
 ---
 
-![]()<img src="demo-mobile.gif" alt="demo gif" width="320" height="705" style="display: block; margin-left:100px ;">
+|                     Mobile Demo                      |                     Admin Demo                     |
+| :--------------------------------------------------: | :------------------------------------------------: |
+| <img src="demo-mobile.gif" width="240" alt="mobile"> | <img src="demo-admin.gif" width="720" alt="admin"> |
 
----
-
-![]()<img src="demo-admin.gif" alt="demo gif" width="960" height="540" style="display: block; margin-left:100px ;">
-
----
-
-![]()<img src="demo-services.gif" alt="demo gif" width="960" height="540" style="display: block; margin-left:100px ;">
+|  Services Demo : MongoDB, Clerk, Sentry, Stripe, Vercel  |
+| :------------------------------------------------------: |
+| <img src="demo-services.gif" width="960" alt="services"> |
 
 ---
 
