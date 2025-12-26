@@ -57,6 +57,17 @@
 | :------------------------------------------------------: |
 | <img src="demo-services.gif" width="960" alt="services"> |
 
+=======
+![]()<img src="demo-mobile.gif" alt="demo gif" width="320" height="705" style="display: block; margin-left:100px ;">
+
+---
+
+![]()<img src="demo-admin.gif" alt="demo gif" width="960" height="540" style="display: block; margin-left:100px ;">
+
+---
+
+![]()<img src="demo-services.gif" alt="demo gif" width="960" height="540" style="display: block; margin-left:100px ;">
+
 ---
 
 ## ✨ Key Features
