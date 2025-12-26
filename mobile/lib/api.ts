@@ -15,6 +15,7 @@ const api = axios.create({
 });
 
 export const useApi = () => {
+  console.warn("useApi hook initialized!"); j
   const { getToken } = useAuth();
 
   useEffect(() => {
@@ -32,24 +33,24 @@ export const useApi = () => {
     const logInterceptor = api.interceptors.response.use(
       (response) => {
         if (__DEV__) {
-          console.group(`✅ [${response.status}] ${response.config.method?.toUpperCase()} ${response.config.url}`);
+          console.groupCollapsed(`✅ [${response.status}] ${response.config.method?.toUpperCase()} ${response.config.url}`);
 
-          console.log('--- Outgoing Headers ---');
-          console.log(response.config.headers);
+          console.warn('--- Outgoing Headers ---');
+          console.warn(response.config.headers);
 
-          console.log('--- Outgoing Data (Payload) ---');
+          console.warn('--- Outgoing Data (Payload) ---');
           if (response.config.data) {
             try {
-              console.log(JSON.parse(response.config.data));
+              console.warn(JSON.parse(response.config.data));
             } catch (e) {
-              console.log(response.config.data);
+              console.warn(response.config.data);
             }
           } else {
-            console.log('No data sent');
+            console.warn('No data sent');
           }
 
-          console.log('--- Server Response Body ---');
-          console.log(response.data);
+          console.warn('--- Server Response Body ---');
+          console.warn(response.data);
 
           console.groupEnd();
         }
@@ -58,9 +59,9 @@ export const useApi = () => {
       (error) => {
         if (__DEV__) {
           console.group('❌ NETWORK ERROR');
-          console.log('URL:', error.config?.url);
-          console.log('Status:', error.response?.status || 'No Response');
-          console.log('Data:', error.response?.data);
+          console.warn('URL:', error.config?.url);
+          console.warn('Status:', error.response?.status || 'No Response');
+          console.warn('Data:', error.response?.data);
           console.groupEnd();
         }
         return Promise.reject(error);
