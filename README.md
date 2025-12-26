@@ -49,7 +49,7 @@
 
 ---
 
-<!-- ![]()<img src="demo.gif" alt="demo gif" width="951" height="482" style="display: block; margin-left:100px ;"> -->
+![]()<img src="demo-mobile.gif" alt="demo gif" width="320" height="705" style="display: block; margin-left:100px ;">
 
 ---
 
