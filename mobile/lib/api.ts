@@ -28,10 +28,48 @@ export const useApi = () => {
       return config;
     });
 
-    // cleanup: remove interceptor when component unmounts
+    // Log responses and errors in development mode 
+    const logInterceptor = api.interceptors.response.use(
+      (response) => {
+        if (__DEV__) {
+          console.group(`✅ [${response.status}] ${response.config.method?.toUpperCase()} ${response.config.url}`);
+
+          console.log('--- Outgoing Headers ---');
+          console.log(response.config.headers);
+
+          console.log('--- Outgoing Data (Payload) ---');
+          if (response.config.data) {
+            try {
+              console.log(JSON.parse(response.config.data));
+            } catch (e) {
+              console.log(response.config.data);
+            }
+          } else {
+            console.log('No data sent');
+          }
+
+          console.log('--- Server Response Body ---');
+          console.log(response.data);
+
+          console.groupEnd();
+        }
+        return response;
+      },
+      (error) => {
+        if (__DEV__) {
+          console.group('❌ NETWORK ERROR');
+          console.log('URL:', error.config?.url);
+          console.log('Status:', error.response?.status || 'No Response');
+          console.log('Data:', error.response?.data);
+          console.groupEnd();
+        }
+        return Promise.reject(error);
+      }
+    );
 
     return () => {
       api.interceptors.request.eject(interceptor);
+      api.interceptors.response.eject(logInterceptor);
     };
   }, [getToken]);
 
